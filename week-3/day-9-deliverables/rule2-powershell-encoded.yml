@@ -1,0 +1,31 @@
+title: PowerShell Encoded Command Execution
+
+id: d3b5ab11-3904-4f35-a578-b1a7325613cb
+
+status: test
+
+description: Detects execution of PowerShell commands using the -EncodedCommand flag, commonly used by attackers to obfuscate malicious commands and evade text-based detection.
+
+references:
+    - https://attack.mitre.org/techniques/T1059/001/
+
+author: farhan
+
+date: 2026/07/09
+
+logsource:
+    product: windows
+    service: powershell
+
+detection:
+    selection:
+        EventID: 4104
+        CommandLine|contains: '-EncodedCommand'
+    condition: selection
+
+falsepositives:
+    - Legitimate remote administration via SCCM, Group Policy, or similar deployment tools that Base64-encode commands to avoid special-character issues
+    - Scheduled tasks or automation scripts that use encoded commands for reliability across systems
+
+level: medium
+

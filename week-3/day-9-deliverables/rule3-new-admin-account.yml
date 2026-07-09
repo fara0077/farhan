@@ -1,0 +1,33 @@
+title: New Local Administrator Account Created
+
+id: 543ba969-5288-4cc4-8b82-46c4f1a193a6
+
+status: test
+
+description: Detects a new user account being created or an existing account being added to the Administrators group, which may indicate an attacker establishing persistent privileged access. Each event is treated independently and does not confirm both occurred for the same account.
+
+references:
+  - https://attack.mitre.org/techniques/T1136/001/
+  - https://attack.mitre.org/techniques/T1098/
+
+author: farhan
+
+date: 2026/07/09
+
+logsource:
+  product: windows
+  service: security
+
+detection:
+  selection1:
+    EventID: 4720
+  selection2:
+    EventID: 4732
+    Group_Name|contains: "Administrators"
+  condition: selection1 or selection2
+
+falsepositives:
+  - New employee onboarding involving standard account creation
+  - Role change or promotion requiring elevated administrative access
+
+level: medium

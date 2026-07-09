@@ -1,0 +1,28 @@
+title: Windows Defender Real-Time Protection Disabled
+
+id: e8a23afb-f0b1-40e3-9704-1ca4f15e9452
+
+status: test
+
+description: Detects when Windows Defender real-time protection is disabled, which may indicate an attacker clearing the way to deploy malware undetected.
+
+references:
+  - https://attack.mitre.org/techniques/T1562/001/
+
+author: farhan
+
+date: 2026/07/09
+
+logsource:
+  product: Windows
+  service: windows_defender
+
+detection:
+  selection:
+    EventID: 5001
+  condition: selection
+
+falsepositives:
+  - Installing another antivirus/security product
+
+level: high
