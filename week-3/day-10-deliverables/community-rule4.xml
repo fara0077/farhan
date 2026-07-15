@@ -1,0 +1,13 @@
+<group name="sigma,">
+    <rule id="900004" level="10">
+        <if_sid>18100, 60000, 60001, 60002, 60003, 60004, 60006, 60007, 60008, 60009, 60010, 60011, 60012</if_sid>
+        <field name="win.eventdata.image" type="pcre2">(?i)(?:\\+ssh\.exe)$</field>
+        <field name="win.eventdata.commandLine" type="pcre2">(?i)(?:\ \[/\-\]R\ )</field>
+        <description>Port Forwarding Activity Via SSH.EXE</description>
+        <options>no_full_log</options>
+        <group>windows,process_creation,</group>
+        <mitre>
+            <id>T1572</id>
+        </mitre>
+    </rule>
+</group>
