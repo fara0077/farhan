@@ -1,0 +1,12 @@
+<group name="local,">
+    <rule id="100206" level="12">
+        <if_group>audit</if_group>
+        <field name="audit.execve.a0" type="pcre2">^(nc|ncat)$</field>
+        <field name="audit.execve.a1" type="pcre2">^-e$</field>
+        <description>Possible Netcat reverse shell execution detected (nc/ncat -e)</description>
+        <mitre>
+            <id>T1059.004</id>
+        </mitre>
+        <group>custom_rules,linux,auditd,execution,reverse_shell</group>
+    </rule>
+</group>

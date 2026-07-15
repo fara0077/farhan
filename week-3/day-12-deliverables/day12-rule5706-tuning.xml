@@ -1,0 +1,7 @@
+<group name="local,">
+    <rule id="100207" level="0">
+        <if_sid>5706</if_sid>
+        <srcip>192.168.1.0/24</srcip>
+        <description>sshd: insecure connection attempt (scan) - excluded admin range</description>
+    </rule>
+</group>

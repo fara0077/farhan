@@ -1,0 +1,11 @@
+<group name="local,">
+    <rule id="100200" level="10">
+        <if_group>audit</if_group>
+        <field name="audit.file.name" type="pcre2">^tmp\/[^\/]+$</field>
+        <field name="audit.uid">0</field>
+        <description>Privileged user (root) created a file in /tmp</description>
+        <mitre>
+            <id>T1074</id>
+        </mitre>
+    </rule>
+</group>

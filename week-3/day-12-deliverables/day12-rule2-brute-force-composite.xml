@@ -1,0 +1,11 @@
+<group name="local,">
+    <rule id="900100" level="12" frequency="8" timeframe="120" ignore="60">
+        <if_matched_sid>5760</if_matched_sid>
+        <same_source_ip/>
+        <description>SSH brute force test - alternate ID range</description>
+        <mitre>
+            <id>T1110</id>
+        </mitre>
+        <group>authentication_failures,custom_rules,</group>
+    </rule>
+</group>
